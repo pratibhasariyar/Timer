@@ -1,0 +1,90 @@
+#timerModule .ng-invalid-max,#timerModule .ng-invalid-min
+{
+    border:solid 2px brown;
+}
+#timerModule .ng-untouched
+{
+    border:solid 2px darkred;
+}
+*
+{
+    outline:0;
+}
+#timerModule .disabled
+{
+    pointer-events:none;
+    opacity:0.4;
+}
+.vanish
+{
+    display:none;
+}
+
+#timerModule
+{
+    background-color: rgba(254,67,24,0.8);
+    height: 100%;
+    width: 100%;
+    font-family:fantasy;
+}
+html,body
+{
+    height:100%;
+    width:100%;
+}
+#container
+{
+    background:rgba(255,62,19,0.3);
+    transform: translateY(-50%);
+    position: absolute;
+    top: 50%;
+    text-align:center;
+    box-shadow: 10px 10px 10px 20px rgba(238,59,16,0.3);
+}
+.clockCurrent
+{
+    font-size:20px;
+    color:firebrick;
+    padding-top: 10px;
+}
+#userInputcontainer,.results,#controllerButtons
+{
+    padding: 10px;
+}
+#controllerButtons
+{
+    padding-bottom:45px;
+}
+#controllerButtons button
+{
+    border-radius: 1px;
+    background-color:coral;
+    border: groove 2px red;
+}
+#userInputcontainer input
+{
+    background-color:darkred;
+    font-size:20px;
+    color:mintcream;
+    text-align:center;
+    border:none;
+}
+.results span
+{
+    padding-left:10px;
+}
+.results input
+{
+    background: rgba(255,62,19,0.3);
+    border-radius: 50px;
+    border: none;
+    font-size: 60px;
+    color:bisque;
+    width: 20%;
+    text-align:center;
+}
+.results
+{
+    font-size:60px;
+    color:grey;
+}

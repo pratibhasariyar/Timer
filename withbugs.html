@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>WEB PAGE</title>
+        <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FF5BBD32-AC94-DE4B-B9C2-446CA1E0464C/main.js" charset="UTF-8"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+        <script src="modulefunctionality.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=1.0, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="style.css"/>
+    </head>
+    <body ng-app="Watch">
+        <div ng-controller="clockController" id="timerModule">
+            <div id="container" class="col-lg-offset-4 col-md-offset-4 col-sm-offset-3 col-md-4 col-lg-4 col-xs-12 col-sm-6">
+                <div class="clockCurrent">{{currentHour}}:{{currentMinute}}:{{currentSecond}}</div>
+                <div id="userInputcontainer">
+                    <input type="number" min="0" max="24" ng-model="reqHour" id="input_0" placeholder="0"/>
+                    <input type="number" min="0" max="59" ng-model="reqMin" id="input_1" placeholder="0"/>
+                    <input type="number" min="0" max="59" ng-model="reqSec" id="input_2" placeholder="0"/>
+                </div>
+                <div class="results">
+                    <input class="resultsHour" value={{leftHour}} /><span>:</span>
+                    <input class="resultsMinute" value={{leftMinute}} /><span>:</span>
+                    <input class="resultsSecond" value={{leftSecond}} />
+                </div>
+                <div id="controllerButtons">
+                    <button class="btn-lg disabled start" ng-click="timeStart()">START</button>
+                    <button class="btn-lg disabled stop ng-hide" ng-click="timeStop()">STOP</button>
+                    <button class="btn-lg disabled reset" ng-click="timeReset()">RESET</button>
+                </div>
+            <p>Instructions : Please enter "second" and "minute" value between "0-59" and hour between "0-24"</p>
+            </div>
+        </div>
+    </body>
+</html>
