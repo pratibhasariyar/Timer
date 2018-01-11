@@ -1,6 +1,7 @@
 #timerModule .ng-invalid-max,#timerModule .ng-invalid-min
 {
-    border:solid 2px brown;
+    border:dashed 2px cyan;
+    text-decoration: line-through;
 }
 #timerModule .ng-untouched
 {
@@ -34,7 +35,7 @@ html,body
 }
 #container
 {
-    background:rgba(255,62,19,0.3);
+    background:black;
     transform: translateY(-50%);
     position: absolute;
     top: 50%;
@@ -73,18 +74,33 @@ html,body
 {
     padding-left:10px;
 }
-.results input
+.results input 
 {
     background: rgba(255,62,19,0.3);
     border-radius: 50px;
     border: none;
-    font-size: 60px;
-    color:bisque;
+    font-size: 60px; 
     width: 20%;
     text-align:center;
+}
+.resultsHour
+{
+    color:aquamarine
+}
+.resultsMinute
+{
+   color:cornsilk;
+}
+.resultsSecond
+{
+    color:darkturquoise;
 }
 .results
 {
     font-size:60px;
     color:grey;
+}
+.vanishIt
+{
+    display:none;
 }
