@@ -13,7 +13,7 @@ angular.module("Watch",[]).controller("clockController",function($scope){
             },1000);
 
             $scope.timeStart = function () {
-                   if($(".resultsHour").val() && $(".resultsMinute").val() && $(".resultsSecond").val()){
+                   if($(".resultsHour").val() && $(".resultsMinute").val() && $(".resultsSecond").val() &&($(".resultsHour").val()==0 && $(".resultsMinute").val()==0 && $(".resultsSecond").val()==0)){
                       $scope.leftHour=$scope.reqHour;
                       $scope.leftMinute=$scope.reqMin;
                       $scope.leftSecond=$scope.reqSec;
@@ -28,7 +28,8 @@ angular.module("Watch",[]).controller("clockController",function($scope){
                       angular.element(".start").addClass("ng-hide");
                       angular.element(".stop").addClass("ng-show").removeClass("ng-hide");
                       $scope.startWatchFlag=true;
-             }
+                
+            }
 
             $scope.leftHour=0;
             $scope.leftMinute=0;
@@ -49,7 +50,7 @@ angular.module("Watch",[]).controller("clockController",function($scope){
                     angular.element(".start").addClass("ng-show").removeClass("ng-hide");
                     angular.element(".stop").addClass("ng-hide").removeClass("ng-show");
             }
-
+           
              setInterval(function(){
 
                  if($scope.leftHour>0 && $scope.startWatchFlag==true)
@@ -103,6 +104,33 @@ angular.element(document).ready(function(){
                 else if(zeroFlag==false)
                 $("#timerModule button").removeClass("disabled");
         }
+       function timeVanish() {
+                var count=0;
+                angular.element(".results input").each(function()
+                                                {
+                
+                    if(angular.element(this).val()!=0)
+                            count++;
+                    if(count==1)
+                            angular.element(".results span").addClass("vanishIt");
+                    if(angular.element(this).val()==0)
+                        {
+                            angular.element(this).addClass("vanishIt");
+                            var inputId=angular.element(this).attr("id").split("_")[1];
+                            angular.element(".results #text_"+inputId).addClass("vanishIt");
+                        }
+                            
+                    else
+                        { 
+                             angular.element(this).removeClass("vanishIt");
+                             var inputId=angular.element(this).attr("id").split("_")[1];
+                             angular.element(".results #text_"+inputId).removeClass("vanishIt");
+                        }
+                           
+                });
+            }
+        
+    
         angular.element("#timerModule input[type='number']").on('change',testIntial);
         angular.element("#timerModule input[type='number']").on('keyup',testIntial);
 
@@ -114,6 +142,8 @@ angular.element(document).ready(function(){
 
         angular.element("#timerModule input[type='number']").on('change',everyElement);
         angular.element("#timerModule input[type='number']").on('keyup',everyElement);
+     
+        angular.element(".start,.reset").on('click',timeVanish);
     
     
    });
