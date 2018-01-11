@@ -22,16 +22,16 @@
                     <input type="number" min="0" max="59" ng-model="reqSec" id="input_2" placeholder="0"/>
                 </div>
                 <div class="results">
-                    <input class="resultsHour" value={{leftHour}} /><span>:</span>
-                    <input class="resultsMinute" value={{leftMinute}} /><span>:</span>
-                    <input class="resultsSecond" value={{leftSecond}} />
+                    <input class="resultsHour disabled" id="re_1" value={{leftHour}} /><span id="text_1">:</span>
+                    <input class="resultsMinute disabled" id="re_2" value={{leftMinute}} /><span id="text_2">:</span>
+                    <input class="resultsSecond disabled" value={{leftSecond}} />
                 </div>
                 <div id="controllerButtons">
                     <button class="btn-lg disabled start" ng-click="timeStart()">START</button>
                     <button class="btn-lg disabled stop ng-hide" ng-click="timeStop()">STOP</button>
                     <button class="btn-lg disabled reset" ng-click="timeReset()">RESET</button>
                 </div>
-            <p>Instructions : Please enter "second" and "minute" value between "0-59" and hour between "0-24"</p>
+            <p class="instruction">Instructions : Please enter "second" and "minute" value between "0-59" and hour between "0-24"</p>
             </div>
         </div>
     </body>
