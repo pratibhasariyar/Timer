@@ -49,7 +49,10 @@ angular.module("Watch",[]).controller("clockController",function($scope){
                     angular.element("#timerModule input[type='number']").removeAttr("disabled");
                     angular.element(".start").addClass("ng-show").removeClass("ng-hide");
                     angular.element(".stop").addClass("ng-hide").removeClass("ng-show");
+                    angular.element(".progressBar").stop();
+                    angular.element(".progressBar").animate({width:"100%"});
             }
+            
            
              setInterval(function(){
 
@@ -104,33 +107,29 @@ angular.element(document).ready(function(){
                 else if(zeroFlag==false)
                 $("#timerModule button").removeClass("disabled");
         }
-       function timeVanish() {
-                var count=0;
+      function timeVanish() {
+                
                 angular.element(".results input").each(function()
                                                 {
-                
-                    if(angular.element(this).val()!=0)
-                            count++;
-                    if(count==1)
-                            angular.element(".results span").addClass("vanishIt");
                     if(angular.element(this).val()==0)
                         {
-                            angular.element(this).addClass("vanishIt");
-                            var inputId=angular.element(this).attr("id").split("_")[1];
-                            angular.element(".results #text_"+inputId).addClass("vanishIt");
-                        }
-                            
-                    else
-                        { 
-                             angular.element(this).removeClass("vanishIt");
-                             var inputId=angular.element(this).attr("id").split("_")[1];
-                             angular.element(".results #text_"+inputId).removeClass("vanishIt");
-                        }
-                           
+                            angular.element(this).attr("placeholder","0");
+                        }         
                 });
+              
             }
-        
+    function progressBar() {
+                var hourVal=angular.element("#input_0").val();
+                var minVal=angular.element("#input_1").val();
+                var secVal=angular.element("#input_2").val();
+                var hourMilliseconds=hourVal*60*60*1000;
+                var minMilliseconds=minVal*60*1000;
+                var secMilliseconds=secVal*1000;
+                var animateLength=hourMilliseconds+minMilliseconds+secMilliseconds;
     
+                angular.element(".progressBar").animate({width:"0px"},animateLength);
+    }
+  
         angular.element("#timerModule input[type='number']").on('change',testIntial);
         angular.element("#timerModule input[type='number']").on('keyup',testIntial);
 
@@ -144,7 +143,7 @@ angular.element(document).ready(function(){
         angular.element("#timerModule input[type='number']").on('keyup',everyElement);
      
         angular.element(".start,.reset").on('click',timeVanish);
-    
-    
+        angular.element(".start").on('click',progressBar);
+   
    });
 
