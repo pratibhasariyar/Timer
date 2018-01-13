@@ -1,6 +1,6 @@
 #timerModule .ng-invalid-max,#timerModule .ng-invalid-min
 {
-    border:dashed 2px cyan;
+    box-shadow: 0 0 15px rgba(81, 203, 238, 1);
     text-decoration: line-through;
 }
 #timerModule .ng-untouched
@@ -23,7 +23,6 @@
 
 #timerModule
 {
-    background-color: rgba(254,67,24,0.8);
     height: 100%;
     width: 100%;
     font-family:fantasy;
@@ -104,3 +103,20 @@ html,body
 {
     display:none;
 }
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
+}
+.instruction
+{
+    color:darkcyan;
+}
+.progressBar {
+    width: 100%;
+    height: 5px;
+    background:darkcyan;
+}
+
